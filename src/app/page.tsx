@@ -1,5 +1,13 @@
 import Image from "next/image";
-import { Instagram, Facebook, Youtube, AtSign, Globe } from "lucide-react";
+// Додали Mail в імпорт
+import {
+  Instagram,
+  Facebook,
+  Youtube,
+  AtSign,
+  Globe,
+  Mail,
+} from "lucide-react";
 
 export default function Home() {
   // 👇👇👇 ВАШІ ПОСИЛАННЯ ТУТ 👇👇👇
@@ -28,15 +36,13 @@ export default function Home() {
       icon: <AtSign size={24} />,
       image: null,
     },
-    // Можна додати ще, наприклад Etsy або Telegram:
-    /*
+    // 👇 Нова кнопка для пошти
     {
-      title: "Etsy Shop",
-      url: "https://etsy.com/shop/ваша_назва",
-      icon: <Globe size={24} />,
+      title: "Написати на пошту",
+      url: "mailto:bonnybloom.com.ua@gmail.com",
+      icon: <Mail size={24} />,
       image: null,
     },
-    */
   ];
 
   return (
@@ -67,7 +73,7 @@ export default function Home() {
           </div>
 
           {/* Ряд соціальних іконок (маленькі) */}
-          <div className="flex gap-6 text-gray-700 mt-2">
+          <div className="flex gap-6 text-gray-700 mt-2 justify-center flex-wrap">
             <a
               href="https://www.instagram.com/bonny.bloom.studio/"
               target="_blank"
@@ -96,6 +102,13 @@ export default function Home() {
             >
               <AtSign size={28} />
             </a>
+            {/* 👇 Нова іконка пошти */}
+            <a
+              href="mailto:bonnybloom.com.ua@gmail.com"
+              className="hover:text-black transition transform hover:scale-110"
+            >
+              <Mail size={28} />
+            </a>
           </div>
         </header>
 
@@ -105,12 +118,12 @@ export default function Home() {
             <a
               key={index}
               href={link.url}
-              target="_blank"
+              target={link.url.startsWith("mailto:") ? "_self" : "_blank"} // mailto відкриваємо в тому ж вікні
               rel="noopener noreferrer"
               className="block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 overflow-hidden group"
             >
               {link.image ? (
-                // Блок з картинкою (якщо колись знадобиться)
+                // Блок з картинкою
                 <div className="flex flex-col">
                   <div className="relative w-full h-48">
                     <Image
@@ -125,17 +138,15 @@ export default function Home() {
                   </div>
                 </div>
               ) : (
-                // Стандартна кнопка (без трикрапок)
+                // Стандартна кнопка
                 <div className="flex items-center p-4">
                   <div className="bg-gray-100 p-2 rounded-full mr-4 text-gray-800">
                     {link.icon || <Globe size={20} />}
                   </div>
-                  {/* Текст тепер центрується вільно */}
+                  {/* Текст центрується */}
                   <span className="font-medium grow text-center">
                     {link.title}
                   </span>
-                  {/* Пустий блок справа для балансу (щоб текст був візуально по центру), 
-                      бо зліва є іконка ~40px. Можна прибрати, якщо не подобається. */}
                   <div className="w-10"></div>
                 </div>
               )}
