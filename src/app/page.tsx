@@ -1,65 +1,166 @@
 import Image from "next/image";
+import { Instagram, Facebook, Youtube, AtSign, Globe } from "lucide-react";
 
 export default function Home() {
+  // 👇👇👇 ВАШІ ПОСИЛАННЯ ТУТ 👇👇👇
+  const socialLinks = [
+    {
+      title: "Instagram",
+      url: "https://www.instagram.com/bonny.bloom.studio/",
+      icon: <Instagram size={24} />,
+      image: null,
+    },
+    {
+      title: "Facebook",
+      url: "https://www.facebook.com/bonny.bloom.studio",
+      icon: <Facebook size={24} />,
+      image: null,
+    },
+    {
+      title: "YouTube",
+      url: "https://www.youtube.com/@BonnyArt",
+      icon: <Youtube size={24} />,
+      image: null,
+    },
+    {
+      title: "Threads",
+      url: "https://www.threads.com/@bonny.bloom.studio",
+      icon: <AtSign size={24} />,
+      image: null,
+    },
+    // Можна додати ще, наприклад Etsy або Telegram:
+    /*
+    {
+      title: "Etsy Shop",
+      url: "https://etsy.com/shop/ваша_назва",
+      icon: <Globe size={24} />,
+      image: null,
+    },
+    */
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <main className="min-h-screen bg-[#F3E5E5] flex justify-center py-10 px-4 font-sans text-slate-800">
+      <div className="w-full max-w-md space-y-8">
+        {/* Верхня частина: Лого та Опис */}
+        <header className="flex flex-col items-center text-center space-y-4">
+          {/* Логотип */}
+          <div className="relative w-32 h-32 overflow-hidden">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/logo.png"
+              alt="Bonny Bloom Logo"
+              fill
+              className="object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
+          {/* Назва та Біо */}
+          <div className="space-y-2">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+              Bonny Bloom Studio
+            </h1>
+            <p className="text-sm text-gray-700 leading-relaxed max-w-xs mx-auto">
+              ✨ Bonny Bloom — настрій у стібках <br />
+              🌸 Схеми для вишивки, що закохують <br />
+              🌿 Легкі сюжети, теплі емоції
+            </p>
+          </div>
+
+          {/* Ряд соціальних іконок (маленькі) */}
+          <div className="flex gap-6 text-gray-700 mt-2">
+            <a
+              href="https://www.instagram.com/bonny.bloom.studio/"
+              target="_blank"
+              className="hover:text-black transition transform hover:scale-110"
+            >
+              <Instagram size={28} />
+            </a>
+            <a
+              href="https://www.youtube.com/@BonnyArt"
+              target="_blank"
+              className="hover:text-black transition transform hover:scale-110"
+            >
+              <Youtube size={28} />
+            </a>
+            <a
+              href="https://www.facebook.com/bonny.bloom.studio"
+              target="_blank"
+              className="hover:text-black transition transform hover:scale-110"
+            >
+              <Facebook size={28} />
+            </a>
+            <a
+              href="https://www.threads.com/@bonny.bloom.studio"
+              target="_blank"
+              className="hover:text-black transition transform hover:scale-110"
+            >
+              <AtSign size={28} />
+            </a>
+          </div>
+        </header>
+
+        {/* Список посилань (великі кнопки) */}
+        <div className="space-y-4">
+          {socialLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 overflow-hidden group"
+            >
+              {link.image ? (
+                // Блок з картинкою (якщо колись знадобиться)
+                <div className="flex flex-col">
+                  <div className="relative w-full h-48">
+                    <Image
+                      src={link.image}
+                      alt={link.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-4 flex items-center justify-center">
+                    <span className="font-medium">{link.title}</span>
+                  </div>
+                </div>
+              ) : (
+                // Стандартна кнопка (без трикрапок)
+                <div className="flex items-center p-4">
+                  <div className="bg-gray-100 p-2 rounded-full mr-4 text-gray-800">
+                    {link.icon || <Globe size={20} />}
+                  </div>
+                  {/* Текст тепер центрується вільно */}
+                  <span className="font-medium grow text-center">
+                    {link.title}
+                  </span>
+                  {/* Пустий блок справа для балансу (щоб текст був візуально по центру), 
+                      бо зліва є іконка ~40px. Можна прибрати, якщо не подобається. */}
+                  <div className="w-10"></div>
+                </div>
+              )}
+            </a>
+          ))}
         </div>
-      </main>
-    </div>
+
+        {/* Футер */}
+        <footer className="text-center pt-8 pb-4">
+          <a
+            href="#"
+            className="flex items-center justify-center gap-2 text-gray-500 text-xs uppercase tracking-widest opacity-70 hover:opacity-100 transition"
+          >
+            <div className="w-8 h-8 relative">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
+            Bonny Bloom Studio
+          </a>
+        </footer>
+      </div>
+    </main>
   );
 }
