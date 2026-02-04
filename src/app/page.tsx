@@ -7,7 +7,7 @@ import {
   AtSign,
   Globe,
   Mail,
-  BookOpen, // нова іконка
+  BookOpen,
 } from "lucide-react";
 
 export default function Home() {
@@ -15,13 +15,13 @@ export default function Home() {
     {
       title: "Каталог (UA) 🇺🇦",
       url: "https://drive.google.com/drive/folders/10Nwcpf4IAzT4U37dGG5c1giRrcLvJkIy",
-      icon: <BookOpen size={24} className="text-rose-500" />, // Можна додати колір для акценту
+      icon: <BookOpen size={24} />,
       image: null,
     },
     {
-      title: "Catalog (EN) 🌎",
+      title: "Catalog (EN) 🇬🇧",
       url: "https://drive.google.com/drive/folders/1GwMM35A5ZrdgCsGiWZu-BRYXtkzF3S-h",
-      icon: <BookOpen size={24} className="text-rose-500" />,
+      icon: <BookOpen size={24} />,
       image: null,
     },
     {
