@@ -25,6 +25,7 @@ export default function Home() {
           />
         </span>
       ),
+      altText: "Каталог (UA)",
       url: "https://drive.google.com/drive/folders/10Nwcpf4IAzT4U37dGG5c1giRrcLvJkIy",
       icon: <BookOpen size={24} />,
       image: null,
@@ -42,36 +43,42 @@ export default function Home() {
           />
         </span>
       ),
+      altText: "Catalog (EN)",
       url: "https://drive.google.com/drive/folders/1GwMM35A5ZrdgCsGiWZu-BRYXtkzF3S-h",
       icon: <BookOpen size={24} />,
       image: null,
     },
     {
       title: "Instagram",
+      altText: "Instagram",
       url: "https://www.instagram.com/bonny.bloom.studio/",
       icon: <Instagram size={24} />,
       image: null,
     },
     {
       title: "Facebook",
+      altText: "Facebook",
       url: "https://www.facebook.com/bonny.bloom.studio",
       icon: <Facebook size={24} />,
       image: null,
     },
     {
       title: "YouTube",
+      altText: "YouTube",
       url: "https://www.youtube.com/@BonnyArt",
       icon: <Youtube size={24} />,
       image: null,
     },
     {
       title: "Threads",
+      altText: "Threads",
       url: "https://www.threads.com/@bonny.bloom.studio",
       icon: <AtSign size={24} />,
       image: null,
     },
     {
       title: "Написати на пошту",
+      altText: "Написати на пошту. Email me.",
       url: "mailto:bonnybloom.com.ua@gmail.com",
       icon: <Mail size={24} />,
       image: null,
@@ -155,7 +162,7 @@ export default function Home() {
                   <div className="relative w-full h-48">
                     <Image
                       src={link.image}
-                      alt={link.title}
+                      alt={link.altText || "Social link"}
                       fill
                       className="object-cover"
                     />
