@@ -1,5 +1,5 @@
 import Image from "next/image";
-// Додали Mail в імпорт
+
 import {
   Instagram,
   Facebook,
@@ -7,11 +7,23 @@ import {
   AtSign,
   Globe,
   Mail,
+  BookOpen, // нова іконка
 } from "lucide-react";
 
 export default function Home() {
-  // 👇👇👇 ВАШІ ПОСИЛАННЯ ТУТ 👇👇👇
   const socialLinks = [
+    {
+      title: "Каталог (UA) 🇺🇦",
+      url: "https://drive.google.com/drive/folders/10Nwcpf4IAzT4U37dGG5c1giRrcLvJkIy",
+      icon: <BookOpen size={24} className="text-rose-500" />, // Можна додати колір для акценту
+      image: null,
+    },
+    {
+      title: "Catalog (EN) 🌎",
+      url: "https://drive.google.com/drive/folders/1GwMM35A5ZrdgCsGiWZu-BRYXtkzF3S-h",
+      icon: <BookOpen size={24} className="text-rose-500" />,
+      image: null,
+    },
     {
       title: "Instagram",
       url: "https://www.instagram.com/bonny.bloom.studio/",
@@ -36,7 +48,6 @@ export default function Home() {
       icon: <AtSign size={24} />,
       image: null,
     },
-    // 👇 Нова кнопка для пошти
     {
       title: "Написати на пошту",
       url: "mailto:bonnybloom.com.ua@gmail.com",
@@ -48,9 +59,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#F3E5E5] flex justify-center py-10 px-4 font-sans text-slate-800">
       <div className="w-full max-w-md space-y-8">
-        {/* Верхня частина: Лого та Опис */}
         <header className="flex flex-col items-center text-center space-y-4">
-          {/* Логотип */}
           <div className="relative w-32 h-32 overflow-hidden">
             <Image
               src="/logo.png"
@@ -60,7 +69,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Назва та Біо */}
           <div className="space-y-2">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900">
               Bonny Bloom Studio
@@ -72,7 +80,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Ряд соціальних іконок (маленькі) */}
           <div className="flex gap-6 text-gray-700 mt-2 justify-center flex-wrap">
             <a
               href="https://www.instagram.com/bonny.bloom.studio/"
@@ -102,7 +109,7 @@ export default function Home() {
             >
               <AtSign size={28} />
             </a>
-            {/* 👇 Нова іконка пошти */}
+
             <a
               href="mailto:bonnybloom.com.ua@gmail.com"
               className="hover:text-black transition transform hover:scale-110"
@@ -112,18 +119,16 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Список посилань (великі кнопки) */}
         <div className="space-y-4">
           {socialLinks.map((link, index) => (
             <a
               key={index}
               href={link.url}
-              target={link.url.startsWith("mailto:") ? "_self" : "_blank"} // mailto відкриваємо в тому ж вікні
+              target={link.url.startsWith("mailto:") ? "_self" : "_blank"}
               rel="noopener noreferrer"
               className="block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 overflow-hidden group"
             >
               {link.image ? (
-                // Блок з картинкою
                 <div className="flex flex-col">
                   <div className="relative w-full h-48">
                     <Image
@@ -138,12 +143,11 @@ export default function Home() {
                   </div>
                 </div>
               ) : (
-                // Стандартна кнопка
                 <div className="flex items-center p-4">
                   <div className="bg-gray-100 p-2 rounded-full mr-4 text-gray-800">
                     {link.icon || <Globe size={20} />}
                   </div>
-                  {/* Текст центрується */}
+
                   <span className="font-medium grow text-center">
                     {link.title}
                   </span>
@@ -154,7 +158,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Футер */}
         <footer className="text-center pt-8 pb-4">
           <a
             href="#"
