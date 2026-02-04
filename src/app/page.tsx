@@ -13,13 +13,35 @@ import {
 export default function Home() {
   const socialLinks = [
     {
-      title: "Каталог (UA) 🇺🇦",
+      title: (
+        <span className="flex items-center justify-center gap-2">
+          Каталог (UA)
+          <Image
+            src="/ua-flag.png"
+            alt="UA Flag"
+            width={20}
+            height={15}
+            className="object-contain"
+          />
+        </span>
+      ),
       url: "https://drive.google.com/drive/folders/10Nwcpf4IAzT4U37dGG5c1giRrcLvJkIy",
       icon: <BookOpen size={24} />,
       image: null,
     },
     {
-      title: "Catalog (EN) 🇬🇧",
+      title: (
+        <span className="flex items-center justify-center gap-2">
+          Catalog (EN)
+          <Image
+            src="/en-flag.png"
+            alt="EN Flag"
+            width={20}
+            height={15}
+            className="object-contain"
+          />
+        </span>
+      ),
       url: "https://drive.google.com/drive/folders/1GwMM35A5ZrdgCsGiWZu-BRYXtkzF3S-h",
       icon: <BookOpen size={24} />,
       image: null,
