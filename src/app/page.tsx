@@ -66,6 +66,11 @@ export default function Home() {
       url: "https://www.threads.com/@bonny.art",
       icon: <AtSign size={24} />,
     },
+    {
+      title: "Написати на пошту",
+      url: "mailto:bonnyart.com.ua@gmail.com",
+      icon: <Mail size={24} />,
+    },
   ];
 
   // 🌸 Двері №2: Світ Bonny Bloom
@@ -117,6 +122,11 @@ export default function Home() {
       url: "https://www.threads.com/@bonny.bloom.studio",
       icon: <AtSign size={24} />,
     },
+    {
+      title: "Написати на пошту",
+      url: "mailto:bonnybloom.com.ua@gmail.com",
+      icon: <Mail size={24} />,
+    },
   ];
 
   // ✉️ Спільний простір: Контакти
@@ -125,11 +135,6 @@ export default function Home() {
       title: "YouTube канал",
       url: "https://www.youtube.com/@BonnyArt",
       icon: <Youtube size={24} />,
-    },
-    {
-      title: "Написати мені на пошту",
-      url: "mailto:bonnybloom.com.ua@gmail.com",
-      icon: <Mail size={24} />,
     },
   ];
 
