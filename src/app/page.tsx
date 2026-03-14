@@ -48,7 +48,7 @@ export default function Home() {
           />
         </span>
       ),
-      url: "https://drive.google.com/drive/u/2/folders/1dfnZDVd_LkGo-ES1OPvgZ07Og8Pubn7b", // todo: Твій лінк на EN каталог Bonny Art
+      url: "https://drive.google.com/drive/u/2/folders/1dfnZDVd_LkGo-ES1OPvgZ07Og8Pubn7b",
       icon: <BookOpen size={24} />,
     },
     {
@@ -67,13 +67,21 @@ export default function Home() {
       icon: <AtSign size={24} />,
     },
     {
-      title: "Написати на пошту",
+      title: (
+        <span className="flex flex-col items-center justify-center space-y-0.5">
+          <span className="font-semibold text-[15px]">
+            Order pattern via Email
+          </span>
+          <span className="text-xs font-normal text-gray-500">
+            Написати для замовлення
+          </span>
+        </span>
+      ),
       url: "mailto:bonnyart.com.ua@gmail.com",
       icon: <Mail size={24} />,
     },
   ];
 
-  // 🌸 Двері №2: Світ Bonny Bloom
   const bloomLinks: LinkData[] = [
     {
       title: (
@@ -123,13 +131,21 @@ export default function Home() {
       icon: <AtSign size={24} />,
     },
     {
-      title: "Написати на пошту",
+      title: (
+        <span className="flex flex-col items-center justify-center space-y-0.5">
+          <span className="font-semibold text-[15px]">
+            Order pattern via Email
+          </span>
+          <span className="text-xs font-normal text-gray-500">
+            Написати для замовлення
+          </span>
+        </span>
+      ),
       url: "mailto:bonnybloom.com.ua@gmail.com",
       icon: <Mail size={24} />,
     },
   ];
 
-  // ✉️ Спільний простір: Контакти
   const generalLinks: LinkData[] = [
     {
       title: "YouTube канал",
@@ -138,7 +154,6 @@ export default function Home() {
     },
   ];
 
-  // Компонент для відмальовки кнопок. Тепер він знає, що 'link' має тип 'LinkData'
   const LinkButton = ({ link }: { link: LinkData }) => (
     <a
       href={link.url}
@@ -160,14 +175,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-50 flex justify-center py-12 px-4 font-sans text-slate-800 overflow-x-hidden">
-      {/* Ось вона, наша нова чиста магія!
-        До 374px - тягнеться (w-full).
-        Від 375 до 767px - зафіксовано 375px.
-        Від 768 до 1439px - зафіксовано 768px.
-        Від 1440px і далі - зафіксовано 1440px.
-      */}
       <div className="xs:w-[343px] md:w-176 2xl:w-7xl flex flex-col items-center space-y-10">
-        {/* ГОЛОВНИЙ ВХІД (ШАПКА) */}
+        {/* ШАПКА */}
         <header className="flex flex-col items-center text-center space-y-5">
           <div className="relative w-36 h-36 overflow-hidden rounded-full shadow-lg border-4 border-white">
             <Image
@@ -189,18 +198,34 @@ export default function Home() {
               </span>
             </p>
           </div>
+
+          {/* Плашка з інструкцією */}
+          <div className="bg-white px-5 py-4 rounded-2xl shadow-sm border border-gray-100 max-w-sm w-full space-y-1.5 mt-2">
+            <p className="text-sm font-semibold text-gray-800">
+              👇 How to buy: Choose a PDF pattern in the Catalog and email me!
+            </p>
+            <p className="text-xs text-gray-500 font-medium">
+              Як купити: оберіть PDF-схему в каталозі та напишіть мені на пошту
+            </p>
+          </div>
         </header>
 
         <div className="flex flex-col md:flex-row gap-6">
-          {/* БЛОК 1: BONNY ART */}
+          {/* BONNY ART */}
           <section className="bg-amber-50/40 p-5 rounded-2xl shadow-sm border border-amber-100/50 space-y-4">
             <div className="flex items-center justify-center gap-2 mb-2">
               <Palette size={20} className="text-amber-600" />
               <h2 className="text-xl font-semibold text-gray-800">Bonny Art</h2>
             </div>
-            <p className="text-xs text-center text-gray-600 mb-4">
-              Мої великі багатоколірні шедеври
-            </p>
+
+            <div className="text-center mb-5 space-y-1">
+              <p className="text-sm font-medium text-gray-800">
+                My full-coverage multicolor masterpieces
+              </p>
+              <p className="text-xs text-gray-500">
+                Мої великі багатоколірні шедеври
+              </p>
+            </div>
 
             <div className="space-y-3">
               {artLinks.map((link, index) => (
@@ -209,7 +234,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* БЛОК 2: BONNY BLOOM */}
+          {/* BONNY BLOOM */}
           <section className="bg-rose-50/40 p-5 rounded-2xl shadow-sm border border-rose-100/50 space-y-4">
             <div className="flex items-center justify-center gap-2 mb-2">
               <Sparkles size={20} className="text-rose-400" />
@@ -217,9 +242,15 @@ export default function Home() {
                 Bonny Bloom
               </h2>
             </div>
-            <p className="text-xs text-center text-gray-600 mb-4">
-              Мої милі та затишні сюжети
-            </p>
+
+            <div className="text-center mb-5 space-y-1">
+              <p className="text-sm font-medium text-gray-800">
+                My cute and cozy designs
+              </p>
+              <p className="text-xs text-gray-500">
+                Мої милі та затишні сюжети
+              </p>
+            </div>
 
             <div className="space-y-3">
               {bloomLinks.map((link, index) => (
@@ -229,8 +260,7 @@ export default function Home() {
           </section>
         </div>
 
-        {/* БЛОК 3: СПІЛЬНІ КОНТАКТИ */}
-        {/* Фіксуємо ширину для контактів, щоб вони не розповзалися на всю сторінку на планшеті */}
+        {/* СПІЛЬНІ КОНТАКТИ */}
         <section className="pt-4 space-y-3 w-full xs:w-[375px] md:w-100">
           {generalLinks.map((link, index) => (
             <LinkButton key={`gen-${index}`} link={link} />
