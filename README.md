@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bonny Studio Links
 
-## Getting Started
+Bonny Studio Links is a small Next.js link page for Bonny Studio, with separate link groups for Bonny Art and Bonny Bloom.
 
-First, run the development server:
+## Technologies
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- lucide-react icons
+
+## Project Structure
+
+- `src/app/layout.tsx` - root app layout, fonts, and page metadata.
+- `src/app/page.tsx` - main Bonny Studio links page.
+- `src/app/[...slug]/page.tsx` - catch-all route for unknown paths.
+- `src/app/globals.css` - global styles.
+- `public/` - static images used by the page, including the avatar, logo, flags, and Open Graph image.
+- Root config files - Next.js, TypeScript, Tailwind, PostCSS, and ESLint configuration.
+
+## Routes
+
+- `/` - main links page for Bonny Studio.
+- `src/app/[...slug]/page.tsx` - redirects unknown paths back to `/`.
+
+## Static Assets
+
+Static assets live in `public/` and are referenced from the app with root-relative paths such as `/avatar.png`, `/logo.png`, `/ua-flag.png`, `/en-flag.png`, and `/opengraph-image.png`.
+
+## Available Scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+```
 
-## Learn More
+Start the development server:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
